@@ -1,32 +1,42 @@
 import React from 'react';
 
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
-import HomeScreen from './HomeScreen';
-import DetailsScreen from './DetailsScreen';
-import ProfileScreen from './ProfileScreen';
+import HomeScreen from '../screens/HomeScreen';
+import DetailsScreen from '../screens/DetailsScreen';
+import ProfileScreen from '../screens/ProfileScreen';
 
 const HomeStack = createStackNavigator();
 const DetailsStack = createStackNavigator();
 
-const Tab = createMaterialBottomTabNavigator();
+const Tab = createBottomTabNavigator();
 
 const MainTabScreen = () => (
   <Tab.Navigator
     initialRouteName="Home"
-    activeColor="#fff"
-    shifting={true}
-
+    tabBarOptions={{
+      showLabel:false,
+      activeTintColor: '#E50914',
+      style: {
+        position: 'absolute',
+        bottom:0,
+        left: 0,
+        right: 0,
+        elevation: 0,
+        backgroundColor: '#000',
+        borderTopColor: 'transparent',
+        height: 70
+      }
+    }}
   >
     <Tab.Screen
       name="Home"
-      component={HomeStackScreen}
+      component={HomeScreen}
       options={{
         tabBarLabel: 'Home',
-        tabBarColor: '#16193c',
         tabBarIcon: ({ color }) => (
           <Icon name="ios-home" color={color} size={26} />
         ),
@@ -37,7 +47,6 @@ const MainTabScreen = () => (
       component={DetailsScreen}
       options={{
         tabBarLabel: 'Updates',
-        tabBarColor: '#16193c',
         tabBarIcon: ({ color }) => (
           <Icon name="ios-notifications" color={color} size={26} />
         ),
@@ -48,7 +57,6 @@ const MainTabScreen = () => (
       component={ProfileScreen}
       options={{
         tabBarLabel: 'Profile',
-        tabBarColor: '#16193c',
         tabBarIcon: ({ color }) => (
           <Icon name="ios-person" color={color} size={26} />
         ),

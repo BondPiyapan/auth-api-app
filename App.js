@@ -21,9 +21,9 @@ import {
   DarkTheme as PaperDarkTheme
 } from 'react-native-paper';
 
-import { DrawerContent } from './screens/DrawerContent';
+import { DrawerContent } from './navgation/DrawerContent';
 
-import MainTabScreen from './screens/MainTabScreen';
+import MainTabScreen from './navgation/MainTabScreen';
 import SupportScreen from './screens/SupportScreen';
 import SettingsScreen from './screens/SettingsScreen';
 import BookmarkScreen from './screens/BookmarkScreen';

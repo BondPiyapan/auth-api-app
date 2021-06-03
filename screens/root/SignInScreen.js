@@ -19,6 +19,8 @@ import { useTheme } from 'react-native-paper';
 
 import { AuthContext } from '../../components/context';
 
+import { loginUser } from '../../model/login';
+
 
 const SignInScreen = ({ navigation }) => {
 
@@ -92,16 +94,16 @@ const SignInScreen = ({ navigation }) => {
         }
     }
 
-    const loginUser = (credentials) => {
-        return fetch('https://www.mecallapi.com/api/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(credentials)
-        })
-            .then(data => data.json())
-    }
+    // const loginUser = (credentials) => {
+    //     return fetch('https://www.mecallapi.com/api/login', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify(credentials)
+    //     })
+    //         .then(data => data.json())
+    // }
 
     const loginHandle = async (username, password) => {
         setisLoading(true)
@@ -118,7 +120,7 @@ const SignInScreen = ({ navigation }) => {
             return;
         }
 
-    
+
         if (response.status == "error") {
             Alert.alert('Wrong', response.message, [
                 { text: 'OK' }
